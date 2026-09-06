@@ -1,0 +1,32 @@
+{
+  "name": "bookuniverse",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "pages:dev": "wrangler pages dev dist --project-name bookuniverse --compatibility-date=2026-09-06",
+    "pages:deploy": "npm run build && wrangler pages deploy dist --project-name bookuniverse --branch main",
+    "db:create": "wrangler d1 create bookuniverse-db",
+    "db:migrate:local": "wrangler d1 migrations apply bookuniverse-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply bookuniverse-db --remote"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260906.1",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.1.0",
+    "oxlint": "^1.79.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2",
+    "wrangler": "^4.129.0"
+  }
+}
